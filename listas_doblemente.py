@@ -33,7 +33,8 @@ def mostrar_atras():
 
 mostrar_adelante()
 mostrar_atras()
-
+cabeza= None
+cola= None
 def agregar_inicio(dato):
     global cabeza, cola
     nuevo = crear_nodo(dato)
