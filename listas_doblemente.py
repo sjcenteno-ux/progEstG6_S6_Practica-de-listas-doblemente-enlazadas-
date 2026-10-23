@@ -48,3 +48,27 @@ def agregar_inicio(dato):
 agregar_inicio("Bienvenida")
 mostrar_adelante()
 mostrar_atras()
+
+def eliminar(dato):
+    global cabeza, cola
+    actual = cabeza
+    while actual is not None and actual["dato"] != dato:
+        actual = actual["siguiente"]
+    if actual is None:
+        return False
+
+    anterior = actual["anterior"]
+    siguiente = actual["siguiente"]
+    if anterior is None:
+        cabeza = siguiente
+    else:
+        anterior["siguiente"] = siguiente
+    if siguiente is None:
+        cola = anterior
+    else:
+        siguiente["anterior"] = anterior
+    return True
+
+print("Eliminado:", eliminar("Catálogo"))
+mostrar_adelante()
+mostrar_atras()
